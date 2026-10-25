@@ -1,0 +1,57 @@
+dataset:
+  max_atoms: 20
+  max_types: 100
+  num_workers: 10
+  primitive: True
+
+use_gradscalar: True
+use_schedule: False
+
+model:
+  hidden_dim: 512
+  latent_dim: 8
+  
+  decode_layers: 8
+  neigh_layer: 2
+  fuse_layer: 6
+
+  attn_head: 8
+  dropout: 0.0
+  arrange: 'type_coords'
+
+  neigh_num: 12
+  code_num: 8192
+  code_weight: 0.01
+
+  vae: False
+  ctn_from_vae: False
+  ckpt: ""
+  flow_init_ckpt: ""
+  kmeans_init: true
+  optvq: False
+  optvq_eps: 10
+  lfq: False
+  flow: False 
+  flow_start_epoch: 501
+  flow_update_every: 5
+  flow_vis_every: 250
+  self_correction: True
+  online_correction: True
+
+
+training:
+  batch_size: 128 #1024
+  lr: 0.0001
+  epoch: 20000
+  check: 100
+
+eval:
+  eval_model_name: 'mp20'
+
+device_ids: [0]
+
+wandb:
+    project: FlowVQ
+    name: material_tokenization
+  
+  
